@@ -1,15 +1,28 @@
 import React from "react";
-import classes from "./Error.module.css";
+import { useRouteError } from "react-router-dom";
+import PageContent from "../components/PageContent";
 import MainNavigation from "../components/MainNavigation";
 
 const Error = () => {
+  const error = useRouteError();
+  let title = "An error occured!";
+  let message = "We could not find this page.";
+
+  if (error.status === 500) {
+    message = JSON.parse(error.data).message;
+  }
+
+  if (error.status === 404) {
+    title = "Not Found.";
+    message = "Fail to find resource of the page.";
+  }
+
   return (
     <>
       <MainNavigation />
-      <div className={classes.error}>
-        <h1>An error occured!</h1>
-        <p>We could not find this page.</p>
-      </div>
+      <PageContent title={title}>
+        <p style={{ textAlign: "center" }}>{message}</p>
+      </PageContent>
     </>
   );
 };
