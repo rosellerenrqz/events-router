@@ -2,7 +2,7 @@ EDIT EVENT IS NOW RENDERING THE EVENT FORM.
 
 TODO:
 Needs to fetch data of the events title, image, date, description to make An
-update if the edit changes.
+update if the edit changes. -DONE, SAVE BUTTON NEEDS FUNCTIONALITIES TO UPDATE EVENT
 
 needs to send data to the dummy backend to make changes in the events.
 
