@@ -29,6 +29,7 @@ const loadEvents = async () => {
 
 export default EventsPage;
 
+//deferring data fetching
 export const loader = () => {
   return defer({
     events: loadEvents(),
