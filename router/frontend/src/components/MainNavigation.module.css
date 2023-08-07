@@ -3,7 +3,7 @@
   margin: auto;
   padding: 2rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .list {
@@ -20,10 +20,5 @@
 .list a:hover,
 .list a.active {
   color: var(--color-primary-800);
-  text-decoration: underline;
-}
-
-.isActiveClass {
-  color: lightblue;
   text-decoration: underline;
 }
