@@ -7,11 +7,11 @@ const EventItem = ({ event }) => {
 
   function startDeleteHandler() {
     const proceedToDelete = window.confirm(
-      "Are you sure you want to delete this event?"
+      "Are you sure you want to delete this event?",
     );
 
     if (proceedToDelete) {
-      submit(null, { method: "DELETE" });
+      submit(null, { method: "delete" });
     }
   }
 
