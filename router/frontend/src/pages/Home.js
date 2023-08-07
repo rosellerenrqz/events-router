@@ -1,12 +1,11 @@
 import React from "react";
+import PageContent from "../components/PageContent";
 
 const Home = () => {
   return (
-    <>
-      <div style={{ textAlign: "center", fontSize: "4rem", margin: "3rem 0" }}>
-        Home
-      </div>
-    </>
+    <PageContent title="Home">
+      <p>Browse and Create Amazing Events!</p>
+    </PageContent>
   );
 };
 
