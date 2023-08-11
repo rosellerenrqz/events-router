@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import EventItem from "../components/EventItem";
 import EventsList from "../components/EventsList";
+import { getAuthToken } from "../util/auth";
 
 const EventDetail = () => {
   const { event, events } = useRouteLoaderData("event-detail");
@@ -67,9 +68,13 @@ export const loader = async ({ params }) => {
 };
 
 export const action = async ({ params, request }) => {
+  const token = getAuthToken(); //getting token from util auth js
   const eventId = params.eventId;
   const response = await fetch("http://localhost:8080/events/" + eventId, {
     method: request.method, //in EventItem useSubmit, once submitted, the method will used there will be used in this method. instead of hard coding it
+    headers: {
+      Authorization: "Bearer " + token,
+    },
   });
 
   if (!response.ok) {

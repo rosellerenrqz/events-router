@@ -1,8 +1,10 @@
 import NewsletterSignUp from "../components/NewsletterSignUp";
 import classes from "./MainNavigation.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Form, useLoaderData } from "react-router-dom";
 
 const MainNavigation = () => {
+  const token = useLoaderData();
+
   return (
     <header className={classes.header}>
       <nav>
@@ -35,15 +37,24 @@ const MainNavigation = () => {
               Newsletter
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/auth?mode=login"
-              className={({ isActive }) =>
-                isActive ? classes.active : undefined
-              }>
-              Authentication
-            </NavLink>
-          </li>
+          {!token && (
+            <li>
+              <NavLink
+                to="/auth?mode=login"
+                className={({ isActive }) =>
+                  isActive ? classes.active : undefined
+                }>
+                Authentication
+              </NavLink>
+            </li>
+          )}
+          {token && (
+            <li>
+              <Form action="/logout" method="post">
+                <button>Logout</button>
+              </Form>
+            </li>
+          )}
         </ul>
       </nav>
       <NewsletterSignUp />
