@@ -1,6 +1,5 @@
 import React from "react";
 import { useRouteError } from "react-router-dom";
-import PageContent from "../components/PageContent";
 import MainNavigation from "../components/MainNavigation";
 import classes from "./Error.module.css";
 
@@ -22,7 +21,7 @@ const Error = () => {
     <>
       <MainNavigation />
       <div className={classes.error}>
-        <h1>An Error Occured!</h1>
+        <h1>{title}</h1>
       </div>
       <p style={{ textAlign: "center" }}>{message}</p>
     </>
