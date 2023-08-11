@@ -44,5 +44,9 @@ export const action = async ({ request }) => {
   localStorage.setItem("token", token); //storing in browser api
   // console.log(token);
 
+  const expiration = new Date();
+  expiration.setHours(expiration.getHours() + 1); //1 hour
+  localStorage.setItem("expiration", expiration.toISOString()); //converts date to isostring
+
   return redirect("/");
 };
